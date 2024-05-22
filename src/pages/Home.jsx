@@ -1,3 +1,4 @@
+import ProjectCard from "../components/ProjectCard";
 import Heading from "../components/typography/Heading";
 
 function Home() {
@@ -14,39 +15,21 @@ function Home() {
       <section className="mb-16">
         <h2 className="font-bold text-2xl mb-8 text-neutral-100">Projects</h2>
         <div className="flex flex-col">
-          <button className="hover:bg-gradient-to-r bg-zinc-500 from-blue-600 to-purple-600 rounded-xl p-px max-w-lg mb-8">
-            <a href="https://audiome.io" target="_blank" rel="noreferrer">
-              <div className="px-12 py-20 bg-neutral-900  border-2 border-neutral-400 shadow rounded-xl cursor-pointer">
-                <div className="mx-auto text-left">
-                  <span className="block font-bold text-lg text-neutral-100">
-                    Audiome
-                  </span>
-                  <span className="block  mb-4">Co-founder</span>
-                  <span className="block  max-w-lg">
-                    {
-                      "A hip-hop data website that allows users to see an artist's guest features or two artists' guest features"
-                    }
-                  </span>
-                </div>
-              </div>
-            </a>
-          </button>
-          <button className="hover:bg-gradient-to-r bg-zinc-500 from-blue-600 to-purple-600 rounded-lg p-px max-w-lg mb-8">
-            <a href="https://catalogger.xyz" target="_blank" rel="noreferrer">
-              <div className="p-12 bg-neutral-900  border-2 border-neutral-400 shadow rounded-lg cursor-pointer">
-                <div className="mx-auto text-left">
-                  <span className="block font-bold text-lg text-neutral-100">
-                    Catalogger
-                  </span>
-                  <span className="block  mb-4">Creator</span>
-                  <span className="block  max-w-lg">
-                    A custom tool to help me organize my Spotify playlists while
-                    listening
-                  </span>
-                </div>
-              </div>
-            </a>
-          </button>
+          <ProjectCard
+            title="Kino"
+            subtitle="Chrome extension to export Kindle highlights to Notion"
+            link="/notion"
+          />
+          <ProjectCard
+            title="Audiome"
+            subtitle="A hip-hop data website that allows users to see an artist's guest features or two artists' guest features"
+            link="https://audiome.io"
+          />
+          <ProjectCard
+            title="Catalogger"
+            subtitle="A custom tool to help me organize my Spotify playlists while listening"
+            link="https://catalogger.xyz"
+          />
         </div>
       </section>
       <section className="mb-16">
