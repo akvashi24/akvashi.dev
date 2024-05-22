@@ -1,8 +1,10 @@
 const apiURL =
+  // eslint-disable-next-line no-undef
   process.env.NODE_ENV === "development"
-    ? "http://localhost:5000/"
-    : process.env.NODE_ENV === "production"
-    ? "https://api.audiome.io"
+    ? "http://127.0.0.1:5000"
+    : // eslint-disable-next-line no-undef
+    process.env.NODE_ENV === "production"
+    ? "https://the-nook-backend.vercel.app"
     : "";
 
 // this is not great
@@ -21,15 +23,17 @@ export const checkRefresh = async () => {
   if (now.getTime() > parseInt(expiresAt)) {
     console.error("Access token expired.  Refreshing...");
     const refreshToken = window.localStorage.getItem("refreshToken");
-    return storeAccessToken(refreshToken, true);
+    return fetchAccessToken(refreshToken, true);
   } else {
     return Promise.resolve(true);
   }
 };
 
-export const storeAccessToken = async (code, refresh = false) => {
-  const path = `api/v1/getToken?code=$`;
-  const result = await api.get(path).catch((error) => {
+export const fetchAccessToken = async (app, code, refresh = false) => {
+  const params = new URLSearchParams({ code, app, refresh });
+  const path = `${apiURL}/api/v1/getToken?` + params;
+
+  const result = await fetch(path).catch((error) => {
     // TODO: (akv) this doesn't work if the endpoint doesn't exist
     logErrors(error);
     return null;

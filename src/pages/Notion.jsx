@@ -1,12 +1,12 @@
+import { fetchAccessToken } from "../api/auth";
 import Heading from "../components/typography/Heading";
 import { useSearchParams } from "react-router-dom";
 
 const Notion = () => {
   let [searchParams] = useSearchParams();
 
-  let { code } = searchParams;
-
-  console.log(code);
+  const code = searchParams.get("code");
+  fetchAccessToken("notion", code);
 
   return (
     <section>
