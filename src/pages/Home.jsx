@@ -17,17 +17,20 @@ function Home() {
         <div className="flex flex-col">
           <ProjectCard
             title="Kino"
-            subtitle="Chrome extension to export Kindle highlights to Notion"
+            subtitle="Hobby project"
+            description="Chrome extension to export Kindle highlights to Notion"
             link="/notion"
           />
           <ProjectCard
             title="Audiome"
-            subtitle="A hip-hop data website that allows users to see an artist's guest features or two artists' guest features"
+            subtitle="Co-founder"
+            description="A hip-hop data website that allows users to see an artist's guest features or two artists' guest features"
             link="https://audiome.io"
           />
           <ProjectCard
             title="Catalogger"
-            subtitle="A custom tool to help me organize my Spotify playlists while listening"
+            subtitle="Hobby project"
+            description="A custom tool to help me organize my Spotify playlists while listening"
             link="https://catalogger.xyz"
           />
         </div>
