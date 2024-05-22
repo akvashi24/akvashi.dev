@@ -1,7 +1,13 @@
 import Heading from "../components/typography/Heading";
+import { useSearchParams } from "react-router-dom";
 
 const Notion = () => {
-  console.log("we outchea");
+  let [searchParams] = useSearchParams();
+
+  let { code } = searchParams;
+
+  console.log(code);
+
   return (
     <section>
       <div className="mb-16">
@@ -11,5 +17,7 @@ const Notion = () => {
     </section>
   );
 };
+
+// https://akvashi.dev/notion?code=0303f779-0964-4a22-941a-ac3869dba3d6&state=
 
 export default Notion;
