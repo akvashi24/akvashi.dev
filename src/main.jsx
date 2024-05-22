@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/notion",
+    path: "notion",
     element: <Notion />,
   },
 ]);
