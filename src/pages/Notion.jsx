@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { fetchAccessToken } from "../api/auth";
 import Heading from "../components/typography/Heading";
 import { useSearchParams } from "react-router-dom";
@@ -6,7 +7,11 @@ const Notion = () => {
   let [searchParams] = useSearchParams();
 
   const code = searchParams.get("code");
-  fetchAccessToken("notion", code);
+  useEffect(() => {
+    fetchAccessToken("notion", code).then((token) => {
+      console.log(token);
+    });
+  }, [code]);
 
   return (
     <section>
