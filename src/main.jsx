@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home.jsx";
 import Notion from "./pages/Notion.jsx";
+import NotFound from "./pages/NotFound.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "notion",
     element: <Notion />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
