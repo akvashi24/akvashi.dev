@@ -40,13 +40,13 @@ export const fetchAccessToken = async (app, code, refresh = false) => {
   });
   const body = await result.json();
   if (result && body.access_token) {
-    window.localStorage.setItem("accessToken", body.access_token);
+    window.localStorage.setItem(`${app}AccessToken`, body.access_token);
     if (!refresh) {
-      window.localStorage.setItem("refreshToken", body.refresh_token);
+      window.localStorage.setItem(`${app}RefreshToken`, body.refresh_token);
     }
     const now = new Date();
     let expiresAt = now.getTime() + body.expires_in * 1000;
-    window.localStorage.setItem("expiresAt", expiresAt.toString());
+    window.localStorage.setItem(`${app}TokenExpiresAt`, expiresAt.toString());
   }
   return body;
 };
