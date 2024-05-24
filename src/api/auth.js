@@ -38,17 +38,15 @@ export const fetchAccessToken = async (app, code, refresh = false) => {
     logErrors(error);
     return null;
   });
-  if (result && result.data?.access_token) {
-    window.localStorage.setItem("accessToken", result?.json()?.access_token);
+  const body = await result.json();
+  if (result && body.access_token) {
+    window.localStorage.setItem("accessToken", body.access_token);
     if (!refresh) {
-      window.localStorage.setItem(
-        "refreshToken",
-        result?.json()?.refresh_token
-      );
+      window.localStorage.setItem("refreshToken", body.refresh_token);
     }
     const now = new Date();
-    let expiresAt = now.getTime() + result.data.expires_in * 1000;
+    let expiresAt = now.getTime() + body.expires_in * 1000;
     window.localStorage.setItem("expiresAt", expiresAt.toString());
   }
-  return result?.json();
+  return body;
 };

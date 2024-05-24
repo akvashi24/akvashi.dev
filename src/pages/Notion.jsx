@@ -8,9 +8,7 @@ const Notion = () => {
 
   const code = searchParams.get("code");
   useEffect(() => {
-    fetchAccessToken("notion", code).then((data) => {
-      console.log("Api data:", data);
-    });
+    fetchAccessToken("notion", code);
   }, [code]);
 
   return (
