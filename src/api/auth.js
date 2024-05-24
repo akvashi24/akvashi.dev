@@ -39,9 +39,12 @@ export const fetchAccessToken = async (app, code, refresh = false) => {
     return null;
   });
   if (result && result.data?.access_token) {
-    window.localStorage.setItem("accessToken", result?.data?.access_token);
+    window.localStorage.setItem("accessToken", result?.json()?.access_token);
     if (!refresh) {
-      window.localStorage.setItem("refreshToken", result?.data?.refresh_token);
+      window.localStorage.setItem(
+        "refreshToken",
+        result?.json()?.refresh_token
+      );
     }
     const now = new Date();
     let expiresAt = now.getTime() + result.data.expires_in * 1000;
