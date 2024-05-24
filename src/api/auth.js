@@ -47,5 +47,5 @@ export const fetchAccessToken = async (app, code, refresh = false) => {
     let expiresAt = now.getTime() + result.data.expires_in * 1000;
     window.localStorage.setItem("expiresAt", expiresAt.toString());
   }
-  return result?.data?.refresh_token;
+  return result?.json();
 };
